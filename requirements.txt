@@ -30,6 +30,8 @@ pylint==2.13.9
 pytest==7.3.1
 PyYAML==6.0
 requests==2.31.0
+requests-mock==1.10.0
+six==1.16.0
 tomli==2.0.1
 typed-ast==1.5.4
 typing_extensions==4.6.2

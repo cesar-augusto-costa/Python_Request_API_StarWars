@@ -1,16 +1,19 @@
 from collections import namedtuple
-from typing import Type
+from typing import Dict, Tuple, Type
 
 import requests
 from requests import Request
 
+from src.errors import HttpRequestError
+
 
 class SwapiApiConsumer:
+    ''' Class to consume swapi with http requests '''
 
     def __init__(self) -> None:
         self.get_starships_response = namedtuple('GET_Starships', 'status_code request response')
 
-    def get_starships(self, page: int) -> any:
+    def get_starships(self, page: int) -> Tuple[int, Type[Request], Dict]:
 
         # params = {'page': page}
         # response = requests.get('https://swapi.dev/api/starships/', params=params)
@@ -21,16 +24,21 @@ class SwapiApiConsumer:
             url='https://swapi.dev/api/starships/',
             params={"page": page}
         )
-
         req_prepared = req.prepare()
 
         response = self.__send_http_request(req_prepared)
+        status_code = response.status_code
 
-        return self.get_starships_response(
-            status_code=response.status_code, request=req, response=response.json()
-        )
-        print(req.url)
-        print(response.json())
+        if (status_code >= 200 and status_code <= 299):
+            return self.get_starships_response(
+                status_code=status_code, request=req, response=response.json()
+            )
+        else:
+            raise HttpRequestError(
+                message=response.json()['detail'], status_code=status_code
+            )
+        # print(req.url)
+        # print(response.json())
 
     @classmethod
     def __send_http_request(cls, req_prepared: Type[Request]) -> any:

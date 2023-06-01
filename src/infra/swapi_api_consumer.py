@@ -14,7 +14,12 @@ class SwapiApiConsumer:
         self.get_starships_response = namedtuple('GET_Starships', 'status_code request response')
 
     def get_starships(self, page: int) -> Tuple[int, Type[Request], Dict]:
-
+        '''
+            request starships in pagination
+            :param - page: int with page of navegation
+            :return - Tuple with status_code, request, response attributes
+        '''  
+              
         # params = {'page': page}
         # response = requests.get('https://swapi.dev/api/starships/', params=params)
         # return response.json()

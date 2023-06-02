@@ -39,3 +39,12 @@ def test_get_starships_http_error(requests_mock):
         # print(error.message)
         # print(error.status_code)
         # print(type(error))
+
+def test_get_starships_information():
+    ''' Testing get_starship_information method '''
+
+    starship_id = 9
+    swapi_api_consumer = SwapiApiConsumer()
+
+    response = swapi_api_consumer.get_starships_information(starship_id)
+    print(response)

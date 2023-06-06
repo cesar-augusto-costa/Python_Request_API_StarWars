@@ -12,13 +12,10 @@ def get_pagination_validator(request: any):
         }
     })
 
-    response = query_param_validator.validate(request.query_params)
-    
+    response = query_param_validator.validate(request.query_params)   
     # print(query_param_validator.errors)
     # print(response)
 
     if response is False:
         raise Exception(query_param_validator.errors)
     
-
-

@@ -38,7 +38,7 @@ async def get_starships_in_pagination(request: RequestFastApi):
 @starships_routes.post("/api/starships/information")
 async def get_starship_information(request: RequestFastApi):
     ''' get_starship_information '''
-    ## 43
+
     response = None
     controller = get_starship_information_composer()
 

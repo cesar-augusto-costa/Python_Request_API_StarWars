@@ -13,7 +13,7 @@ class SwapiApiConsumer(SwapiApiConsumerInterface):
 
     def __init__(self) -> None:
         self.get_starships_response = namedtuple('GET_Starships', 'status_code request response')
-        self.get_starships_information_response = namedtuple('GET_Starships_Info', 'status_code request response')
+        self.get_starship_information_response = namedtuple('GET_Starship_Info', 'status_code request response')
 
 
     def get_starships(self, page: int) -> Tuple[int, Type[Request], Dict]:
@@ -49,9 +49,9 @@ class SwapiApiConsumer(SwapiApiConsumerInterface):
         # print(response.json())
 
 
-    def get_starships_information(self, starship_id: int) -> Tuple[int, Type[Request], Dict]:
+    def get_starship_information(self, starship_id: int) -> Tuple[int, Type[Request], Dict]:
         '''
-            request starships information
+            request starship information
             :param - starship_id: int with id of selected starship
             :return - Tuple with status_code, request, response attributes
         '''  
@@ -66,7 +66,7 @@ class SwapiApiConsumer(SwapiApiConsumerInterface):
         status_code = response.status_code
 
         if (status_code >= 200 and status_code <= 299):
-            return self.get_starships_information_response(
+            return self.get_starship_information_response(
                 status_code=status_code, request=req, response=response.json()
             )
         else:

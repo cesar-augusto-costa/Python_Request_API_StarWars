@@ -5,6 +5,7 @@ from src.presenters.interface import ControllersInterface
 
 
 class StarshipInformationColectorController(ControllersInterface):
+    ''' Controller to Starship Information Colector '''
 
     def __init__(self, starship_information_colector: Type[StarshipInformationColectorInterface]) -> None:
         self.__use_case = starship_information_colector
@@ -16,3 +17,6 @@ class StarshipInformationColectorController(ControllersInterface):
         time = http_request["body"]["time"]
 
         starship_information = self.__use_case.find_starship(starship_id, time)
+        http_response = { "status_code": 200, "data": { "data": starship_information } }
+
+        return http_response

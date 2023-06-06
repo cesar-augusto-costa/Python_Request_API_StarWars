@@ -1,7 +1,6 @@
 from typing import Dict, Type
 
-from src.domain.usecases.starships_list_colector import \
-    StarshipsListColectorInterface
+from src.domain.usecases import StarshipsListColectorInterface
 
 
 class StarshipsListColectorController:

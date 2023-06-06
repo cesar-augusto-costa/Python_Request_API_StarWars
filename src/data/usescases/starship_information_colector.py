@@ -1,8 +1,7 @@
 from typing import Dict, Type
 
-from src.data.interfaces.swapi_api_consumer import SwapiApiConsumerInterface
-from src.domain.usecases.starship_information_colector import \
-    StarshipInformationColectorInterface
+from src.data.interfaces import SwapiApiConsumerInterface
+from src.domain.usecases import StarshipInformationColectorInterface
 from src.errors import HttpUnprocessableEntityError
 
 

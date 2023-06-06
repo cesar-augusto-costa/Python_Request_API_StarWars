@@ -1,6 +1,6 @@
 from typing import Dict, List, Type
 
-from src.data.interfaces.swapi_api_consumer import SwapiApiConsumerInterface
+from src.data.interfaces import SwapiApiConsumerInterface
 from src.domain.usecases import StarshipsListColectorInterface
 
 

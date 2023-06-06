@@ -1,4 +1,4 @@
-from src.infra.test.swapi_api_consumer import SwapiApiConsumerSpy
+from src.infra.test import SwapiApiConsumerSpy
 
 from .starships_list_colector import StarshipsListColector
 

@@ -1,6 +1,5 @@
-from src.data.usescases.starship_information_colector import \
-    StarshipInformationColector
-from src.infra.test.swapi_api_consumer import SwapiApiConsumerSpy
+from src.data.usescases import StarshipInformationColector
+from src.infra.test import SwapiApiConsumerSpy
 
 
 def test_find_starship():

@@ -1,0 +1,3 @@
+from .starship_information_colector_controller import \
+    StarshipInformationColectorController
+from .starships_list_colector_controller import StarshipsListColectorController

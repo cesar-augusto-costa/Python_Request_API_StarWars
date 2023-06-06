@@ -1,11 +1,15 @@
 from typing import Callable
 
-from fastapi import APIRouter
 from fastapi import Request as RequestFastApi
 
 
 async def request_adapter(request: RequestFastApi, callback: Callable):
-    ''' FastApi Adapter '''
+    ''' FastApi Adapter
+        Adapter to httpRequest
+        @param - request: Http request Object with all properties
+                 callback: Calback to process http request
+        @return - Http Response to Request
+    '''
 
     body = None
 
@@ -19,8 +23,6 @@ async def request_adapter(request: RequestFastApi, callback: Callable):
         'body': body
     }
 
-    try:
-        http_response = callback(http_request)
-        return http_response
-    except:
-        print('An Error Has Occurred')
+    http_response = callback(http_request)
+    return http_response
+    
